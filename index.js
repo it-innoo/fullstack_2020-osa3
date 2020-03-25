@@ -67,8 +67,30 @@ const randomInt = (min, max) => Math
     * (max - min)) + min
 
 app.post('/api/persons/', (request, response) => {
-  const person = request.body
-  person.id = randomInt(persons.length, 100)
+  const body = request.body
+
+  console.log(body)
+  if (!body.name) {
+    return response.status(400).json({
+      error: 'name missing'
+    })
+  }
+  if (!body.number) {
+    return response.status(400).json({
+      error: 'number missing'
+    })
+  }
+
+  if (persons.some(p => p.name === body.name)) {
+    return response.status(400).json({
+      error: 'name must be unique'
+    })
+  }
+  const person = {
+    name: body.name,
+    number: body.number,
+    id: randomInt(persons.length, 100),
+  }
 
   persons = [...persons, person]
 
