@@ -1,5 +1,6 @@
 import express from 'express'
 const app = express()
+app.use(express.json())
 
 let persons = [
   {
@@ -58,6 +59,20 @@ app.delete('/api/persons/:id', (request, response) => {
   persons = persons.filter(p => p.id !== id)
 
   response.status(204).end()
+})
+
+const randomInt = (min, max) => Math
+  .floor(
+    Math.random()
+    * (max - min)) + min
+
+app.post('/api/persons/', (request, response) => {
+  const person = request.body
+  person.id = randomInt(persons.length, 100)
+
+  persons = [...persons, person]
+
+  response.json(person)
 })
 
 const PORT = 3001
