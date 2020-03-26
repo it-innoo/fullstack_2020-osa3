@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node --experimental-modules index.js",
+    "deploy": "rm -rf build && cd ../fullstack_2020/osa2/puhelinluettelo/ && npm run build --prod && cp -r build ../../../f*-osa3/",
+    "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
