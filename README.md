@@ -2,4 +2,5 @@
 
 Tehtävät 3.1.-3.11.
 
-[link to heroku](https://evening-caverns-13941.herokuapp.com/ "Puhelinluettelo")
+Linkki herokuun
+[evening-caverns-13941](https://evening-caverns-13941.herokuapp.com/ "Puhelinluettelo")
