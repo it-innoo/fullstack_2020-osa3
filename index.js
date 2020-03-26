@@ -19,7 +19,7 @@ app.use(morgan(
   ':response-time ms ' +
   ':body'
 ))
-
+/*
 let persons = [
   {
     "name": "Arto Hellas",
@@ -42,7 +42,7 @@ let persons = [
     "id": 4
   }
 ]
-
+*/
 app.get('/', (req, res) => {
   res.send('<h1>Hello World!</h1>')
 })
@@ -103,20 +103,16 @@ app.post('/api/persons/', (request, response) => {
     })
   }
 
-  if (persons.some(p => p.name === body.name)) {
-    return response.status(400).json({
-      error: 'name must be unique'
-    })
-  }
-  const person = {
+  const person = new Person({
     name: body.name,
     number: body.number,
-    id: randomInt(persons.length, 100),
-  }
+  })
 
-  persons = [...persons, person]
-
-  response.json(person)
+  person
+    .save()
+    .then(savedPerson => {
+      response.json(savedPerson.toJSON())
+    })
 })
 
 const PORT = process.env.PORT

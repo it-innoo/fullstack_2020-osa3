@@ -8,7 +8,7 @@ if (process.argv.length < 3) {
 const password = process.argv[2]
 
 const url =
-  `mongodb+srv://ahlgren:${password}@cluster0-q7jus.mongodb.net/test?retryWrites=true&w=majority`
+  `mongodb+srv://ahlgren:${password}@cluster0-q7jus.mongodb.net/jahlgren?retryWrites=true&w=majority`
 
 // console.log(url)
 
