@@ -3,10 +3,12 @@ const mongoose = require('mongoose')
 const url = process.env.MONGODB_URI
 console.log('connecting to MongoDB')
 
-mongoose.connect(
-  url,
-  { useNewUrlParser: true, useUnifiedTopology: true }
-)
+mongoose.connect(url, {
+  useCreateIndex: true,
+  useFindAndModify: false,
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
   .then(() => {
     console.log('connected to MongoDB')
   })
