@@ -7,6 +7,7 @@
     "deploy": "rm -rf build && cd ../fullstack_2020/osa2/puhelinluettelo/ && npm run build --prod && cp -r build ../../../f*-osa3/",
     "start": "node index.js",
     "dev": "nodemon index.js",
+    "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,6 +29,7 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "eslint": "^6.8.0",
     "nodemon": "^2.0.2"
   }
 }
